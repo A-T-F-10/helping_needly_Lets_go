@@ -59,10 +59,14 @@ class _UserChatsState extends State<UserChats> {
                         itemCount: snapshot.data!.docs.length,
                         itemBuilder: (context, index) {
                           return addWidgetText(
-                            Info(
-                              isSentByMe: false,
-                              text:
-                                  ' ${snapshot.data!.docs[index].get('name')}',
+                            emailSender:
+                                snapshot.data!.docs[index].get('email'),
+                            info: Info(
+                              nameSender:
+                                  snapshot.data!.docs[index].get('name'),
+                              text: snapshot.data!.docs[index].get('message'),
+                              timeSender:
+                                  ' ${snapshot.data!.docs[index].get('date')}',
                             ),
                           );
                         });
@@ -87,17 +91,16 @@ class _UserChatsState extends State<UserChats> {
             child: IconButton(
               icon: const Icon(Icons.send),
               onPressed: () {
-                ++indexId;
-                createstUserChats(
-                    collectionVolunteer: textsUs,
-                    documentVolunteer:
-                        ModleGetDate.email + '_' + '${indexId++}',
-                    collectionUser:
-                        ModleGetDate.email + ' User ' + ModleGetDate.username,
-                    dateTime:
-                        ' ${DateTime.now().hour.bitLength.floor().toString()} : ${DateTime.now().minute}',
-                    usersName: ModleGetDate.username,
-                    text: controller.text);
+                indexId = ++indexId;
+                createstChats(
+                  collection: textsUs,
+                  document: ModleGetDate.email + '_' + '${indexId}',
+                  email: ModleGetDate.email,
+                  date:
+                      ' ${DateTime.now().hour.bitLength.floor().toString()} : ${DateTime.now().minute}',
+                  message: controller.text,
+                  name: ModleGetDate.username,
+                );
 
                 controller.clear();
               },
@@ -109,12 +112,16 @@ class _UserChatsState extends State<UserChats> {
     );
   }
 
-  Widget addWidgetText(Info info) {
+  Widget addWidgetText({required Info info, required String emailSender}) {
     return Align(
-      alignment: info.isSentByMe ? Alignment.bottomLeft : Alignment.bottomRight,
+      alignment: ModleGetDate.email == emailSender
+          ? Alignment.bottomRight
+          : Alignment.bottomLeft,
       child: Card(
-        color: info.isSentByMe ? ColorsTheme.darkPrimaryColor : Colors.white,
-        shape: ModleGetDate.email == ModleGetDate.email ? right : left,
+        color: ModleGetDate.email == emailSender
+            ? ColorsTheme.secondColor
+            : ColorsTheme.darkPrimaryColor,
+        shape: ModleGetDate.email == emailSender ? right : left,
         elevation: 10,
         child: Padding(
           padding: const EdgeInsets.all(20),
@@ -143,7 +150,6 @@ Widget textFieldWidget(BuildContext context,
       onSubmitted: (String text) {
         final message = Info(
           text: controller.text,
-          isSentByMe: true,
         );
       },
     ),

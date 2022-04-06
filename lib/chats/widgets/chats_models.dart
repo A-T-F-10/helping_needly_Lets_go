@@ -15,10 +15,12 @@ class Message {
 
 class Info {
   String text;
-  bool isSentByMe;
+  String nameSender;
+  String timeSender;
 
   Info({
+    this.nameSender = '',
+    this.timeSender = '',
     this.text = '',
-    this.isSentByMe = true,
   });
 }

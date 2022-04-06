@@ -37,8 +37,21 @@ void createstUserChats(
   });
 }
 
-
-
+void createstChats({
+  required String collection,
+  required String document,
+  required String name,
+  required String email,
+  required String message,
+  required String date,
+}) async {
+  await firestore.collection(collection).doc(document).set({
+    'name': name,
+    'email': email,
+    'message': message,
+    'date': date,
+  });
+}
 
 
 /* 

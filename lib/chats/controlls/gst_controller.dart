@@ -8,12 +8,10 @@ class ChatController extends GetxController {
   int indexxx = 0;
 
   listenerChet() {
-    // firestore.collection().doc('qxf').collection.toString();
-
-    return firestore.collection(keyUserAll).snapshots();
+    return firestore.collection(textsUs).snapshots();
   }
 
   listenerVoluneets() {
-    return firestore.collection(keyUserAll).doc().snapshots();
+    return firestore.collection(keyUserAll).snapshots();
   }
 }

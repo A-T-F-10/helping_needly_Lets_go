@@ -4,8 +4,6 @@ import 'package:helpings_needlys/core/utils/getx_controller.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
 import 'package:helpings_needlys/core/widgets/list_info_please.dart';
 import 'package:helpings_needlys/localization/t_key_v.dart';
-import 'package:helpings_needlys/models/info/Volunteers.dart';
-import 'package:helpings_needlys/models/info/volunteer_show_dialog.dart';
 import 'package:helpings_needlys/pages/homepage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -85,43 +83,36 @@ class InofPlease extends StatelessWidget {
                 const Divider(
                   thickness: 2,
                 ),
-                volunteersUser(
-                  size: controller.sizex,
-                  context: context,
-                  volunteersText: volunteers[1],
-                  volunteersgenders: volunteersgender[1],
-                  volunteersNumber: 1,
-                ),
-                volunteersUser(
-                    size: controller.sizex,
-                    context: context,
-                    volunteersText: volunteers[5],
-                    volunteersgenders: volunteersgender[5],
-                    volunteersNumber: 5),
-                volunteersUser(
-                    size: controller.sizex,
-                    context: context,
-                    volunteersText: volunteers[3],
-                    volunteersgenders: volunteersgender[3],
-                    volunteersNumber: 3),
-                volunteersUser(
-                    size: controller.sizex,
-                    context: context,
-                    volunteersText: volunteers[0],
-                    volunteersgenders: volunteersgender[0],
-                    volunteersNumber: 0),
-                volunteersUser(
-                    size: controller.sizex,
-                    context: context,
-                    volunteersText: volunteers[4],
-                    volunteersgenders: volunteersgender[4],
-                    volunteersNumber: 4),
-                volunteersUser(
-                    size: controller.sizex,
-                    context: context,
-                    volunteersText: volunteers[2],
-                    volunteersgenders: volunteersgender[2],
-                    volunteersNumber: 2),
+                //   Expanded(
+                //     child: GetBuilder<ChatController>(
+                //       init: ChatController(),
+                //       builder: (contr) => StreamBuilder<QuerySnapshot>(
+                //           stream: contr.listenerVoluneets(),
+                //           builder: (context, snapshot) {
+                //             if (!snapshot.hasData) {
+                //               return const Center(
+                //                 child: CircularProgressIndicator(),
+                //               );
+                //             }
+                //             return ListView.builder(
+                //                 reverse: true,
+                //                 addRepaintBoundaries: false,
+                //                 itemCount: snapshot.data!.docs.length,
+                //                 itemBuilder: (context, index) {
+                //                   return volunteersUser(
+                //                     size: controller.sizex,
+                //                     context: context,
+                //                     volunteersText:
+                //                         snapshot.data!.docs[index].get('name'),
+                //                     volunteersgenders:
+                //                         snapshot.data!.docs[index].get('gender'),
+                //                     volunteersNumber:
+                //                         snapshot.data!.docs[index].get('phone'),
+                //                   );
+                //                 });
+                //           }),
+                //     ),
+                //   ),
               ],
             ),
           ),
@@ -180,16 +171,16 @@ class InofPlease extends StatelessWidget {
 
   Widget volunteersUser({
     required String volunteersText,
-    required String volunteersgenders,
-    required int volunteersNumber,
+    required int volunteersgenders,
+    required String volunteersNumber,
     required BuildContext context,
     required double size,
   }) {
     return ListTile(
       onTap: () {
-        showdailg(context, volunteersNumber);
+        // showdailg(context, volunteersNumber);
       },
-      subtitle: Text(volunteersgenders),
+      subtitle: Text('$volunteersgenders'),
       leading: const CircleAvatar(child: Icon(Icons.person)),
       title: Text(volunteersText,
           style: TextStyle(fontSize: SizeConfig.defaultSize! * size)),

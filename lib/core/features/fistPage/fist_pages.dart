@@ -30,22 +30,22 @@ class FirstPage extends StatelessWidget {
               flex: 1,
             ),
             buttoms(
-                text: TKeys().details,
+                text: 'دخول مستخدم',
                 onPressed: () async {
                   SharedPreferences preferences =
                       await SharedPreferences.getInstance();
                   preferences.setInt(KeysSharedpreferances.PAGE, 0);
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(builder: (__) => const LogIn()),
-                      (route) => false);
+                      (route) => true);
                 }),
             buttoms(
-                text: TKeys().volunteer,
+                text: 'دخول متطوع',
                 onPressed: () {
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(
                           builder: (__) => const VolunteersLogIn()),
-                      (route) => false);
+                      (route) => true);
                 }),
             const Spacer(
               flex: 2,
