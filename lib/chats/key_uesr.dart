@@ -1,2 +1,4 @@
 String keyUserAll = 'chatsAllUsers';
-String textsUs = 'textsUs';
+String usersIdConter = 'Users';
+String keyUser = 'UserId';
+String chstUser = 'chst';

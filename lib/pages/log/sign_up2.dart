@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:helpings_needlys/chats/key_uesr.dart';
+import 'package:helpings_needlys/chats/models/motheds_chats.dart';
 import 'package:helpings_needlys/core/utils/colors.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
 import 'package:helpings_needlys/core/widgets/sigin_mathod.dart';
@@ -40,6 +41,10 @@ class SignUp2State extends State<SignUp2> {
     late String password;
     SharedpreferancesSignup.getData(KeysSharedpreferances.PASSWORD)
         .then((value) => password = value);
+
+    late String name;
+    SharedpreferancesSignup.getData(KeysSharedpreferances.USERNAME)
+        .then((value) => name = value);
 
     return SafeArea(
         child: Scaffold(
@@ -103,12 +108,25 @@ class SignUp2State extends State<SignUp2> {
           logIn.button(
               textButton: TKeys().save,
               onPressed: () async {
+                int idconter = await getConters(
+                    collectionVolunteer: keyUser,
+                    documentVolunteer: keyUser,
+                    keyConter: 'userId');
                 SharedPreferences preferences =
                     await SharedPreferences.getInstance();
                 preferences.setInt(KeysSharedpreferances.PAGE, 1);
+
                 users.type = type.text;
                 users.location = locationUser.text;
                 SharedpreferancesSignup().saveData(users1: users);
+                createstUser(
+                    collectionUser: usersIdConter,
+                    documentUser: email,
+                    volunteerName: name,
+                    volunteerEmail: email,
+                    idChatVolunteer: idconter);
+
+                preferences.setInt(KeysSharedpreferances.USERID, idconter);
 
                 try {
                   print(email);
@@ -128,6 +146,12 @@ class SignUp2State extends State<SignUp2> {
                 } on FirebaseAuthException catch (e) {
                   Utils.showSnackBar(e.message);
                 }
+
+                createUserId(
+                  collectionUser: keyUser,
+                  docm: keyUser,
+                  id: ++idconter,
+                );
               }),
           sizedBox(),
         ]),

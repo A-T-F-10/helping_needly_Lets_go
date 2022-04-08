@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:helpings_needlys/chats/key_uesr.dart';
-import 'package:helpings_needlys/chats/widgets/motheds_chats.dart';
+import 'package:helpings_needlys/chats/models/motheds_chats.dart';
 import 'package:helpings_needlys/core/utils/colors.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
 import 'package:helpings_needlys/core/widgets/sigin_mathod.dart';
@@ -104,13 +104,14 @@ class VolunteersSignUp2State extends State<VolunteersSignUp2> {
                     await SharedPreferences.getInstance();
                 preferences.setInt(KeysSharedpreferances.PAGE, 1);
                 createstVolunteer(
-                  collectionVolunteer: keyUserAll,
-                  documentVolunteer: userName + password,
-                  volunteerEmail: email,
-                  volunteerGender: users.gender,
-                  volunteerName: userName,
-                  volunteerPhone: type.text,
-                );
+                    idCconterVolunteer: 0,
+                    collectionVolunteer: keyUserAll,
+                    documentVolunteer: userName + email,
+                    volunteerEmail: email,
+                    volunteerGender: users.gender,
+                    volunteerName: userName,
+                    volunteerPhone: type.text,
+                    idChatVolunteer: 0);
                 users.type = type.text;
                 users.location = locationUser.text;
                 SharedpreferancesSignup().saveData(users1: users);

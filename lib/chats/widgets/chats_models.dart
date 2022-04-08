@@ -16,11 +16,21 @@ class Message {
 class Info {
   String text;
   String nameSender;
-  String timeSender;
 
   Info({
     this.nameSender = '',
-    this.timeSender = '',
     this.text = '',
+  });
+}
+
+class Chats {
+  String photoUrl;
+  String email;
+  String name;
+
+  Chats({
+    this.photoUrl = '',
+    this.email = '',
+    this.name = '',
   });
 }

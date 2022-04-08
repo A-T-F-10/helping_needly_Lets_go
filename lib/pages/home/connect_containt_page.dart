@@ -6,6 +6,8 @@ class ConnectContaintPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UserChats();
+    return Center(
+      child: Text('ConnectContaintPage'),
+    );
   }
 }

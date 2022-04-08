@@ -7,8 +7,8 @@ class ModleGetDate {
   static double value = 0.0;
   static double colors = 0.0;
   static String email = '';
-  static String password = '';
   static String username = '';
+  static String password = '';
   static int gernder = 0;
   static String age = '';
   static int pagechenge = 0;
@@ -17,11 +17,11 @@ class ModleGetDate {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     pagechenge = preferences.getInt(KeysSharedpreferances.PAGE)!;
     email = preferences.getString(KeysSharedpreferances.EMAIL)!;
+    username = preferences.getString(KeysSharedpreferances.USERNAME)!;
     password = preferences.getString(KeysSharedpreferances.PASSWORD)!;
     size = preferences.getDouble(KeysSharedpreferances.SIZE)!;
     colors = preferences.getDouble(KeysSharedpreferances.THEME)!;
     value = preferences.getDouble(KeysSharedpreferances.VALUE)!;
-    username = preferences.getString(KeysSharedpreferances.USERNAME)!;
     gernder = preferences.getInt(KeysSharedpreferances.GENDER)!;
     age = preferences.getString(KeysSharedpreferances.AGE)!;
   }

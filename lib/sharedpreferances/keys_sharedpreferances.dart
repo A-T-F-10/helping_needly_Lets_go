@@ -11,4 +11,6 @@ class KeysSharedpreferances {
   static String SIZE = 'size';
   static String VALUE = 'value';
   static String PAGE = 'page';
+  static String USERID = 'userId';
+  static String CHACK = 'chack';
 }

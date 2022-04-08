@@ -7,11 +7,12 @@ class ChatController extends GetxController {
   bool isSentByMe = true;
   int indexxx = 0;
 
-  listenerChet() {
-    return firestore.collection(textsUs).snapshots();
-  }
-
-  listenerVoluneets() {
-    return firestore.collection(keyUserAll).snapshots();
+  listenerChet({required String name, required String email, required var id}) {
+    return firestore
+        .collection(keyUserAll)
+        .doc(name + email)
+        .collection('$id' + chstUser)
+        .orderBy('time')
+        .snapshots();
   }
 }

@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:helpings_needlys/chats/controlls/volunteers_cont.dart';
+import 'package:helpings_needlys/chats/home_chats.dart';
+import 'package:helpings_needlys/core/utils/colors.dart';
 import 'package:helpings_needlys/core/utils/getx_controller.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
 import 'package:helpings_needlys/core/widgets/list_info_please.dart';
@@ -69,51 +73,23 @@ class InofPlease extends StatelessWidget {
             ),
           ),
           information(controller.sizex),
-          Card(
-            elevation: 10,
-            child: Column(
-              children: [
-                ListTile(
-                  title: Text(TKeys().volunteers,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: SizeConfig.defaultSize! * controller.sizex,
-                      )),
-                ),
-                const Divider(
-                  thickness: 2,
-                ),
-                //   Expanded(
-                //     child: GetBuilder<ChatController>(
-                //       init: ChatController(),
-                //       builder: (contr) => StreamBuilder<QuerySnapshot>(
-                //           stream: contr.listenerVoluneets(),
-                //           builder: (context, snapshot) {
-                //             if (!snapshot.hasData) {
-                //               return const Center(
-                //                 child: CircularProgressIndicator(),
-                //               );
-                //             }
-                //             return ListView.builder(
-                //                 reverse: true,
-                //                 addRepaintBoundaries: false,
-                //                 itemCount: snapshot.data!.docs.length,
-                //                 itemBuilder: (context, index) {
-                //                   return volunteersUser(
-                //                     size: controller.sizex,
-                //                     context: context,
-                //                     volunteersText:
-                //                         snapshot.data!.docs[index].get('name'),
-                //                     volunteersgenders:
-                //                         snapshot.data!.docs[index].get('gender'),
-                //                     volunteersNumber:
-                //                         snapshot.data!.docs[index].get('phone'),
-                //                   );
-                //                 });
-                //           }),
-                //     ),
-                //   ),
-              ],
+          const SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            height: SizeConfig.screenHeight! * 0.09,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(ColorsTheme.primaryColor)),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (__) => HomeChats()),
+                );
+              },
+              child: Text(TKeys().volunteers,
+                  style: TextStyle(
+                      fontSize: SizeConfig.defaultSize! * controller.sizex)),
             ),
           ),
           const SizedBox(
@@ -166,25 +142,6 @@ class InofPlease extends StatelessWidget {
               yesOrNo: TKeys().yes),
         ],
       ),
-    );
-  }
-
-  Widget volunteersUser({
-    required String volunteersText,
-    required int volunteersgenders,
-    required String volunteersNumber,
-    required BuildContext context,
-    required double size,
-  }) {
-    return ListTile(
-      onTap: () {
-        // showdailg(context, volunteersNumber);
-      },
-      subtitle: Text('$volunteersgenders'),
-      leading: const CircleAvatar(child: Icon(Icons.person)),
-      title: Text(volunteersText,
-          style: TextStyle(fontSize: SizeConfig.defaultSize! * size)),
-      trailing: const Icon(Icons.call),
     );
   }
 }

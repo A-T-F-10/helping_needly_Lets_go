@@ -7,20 +7,18 @@ import 'package:helpings_needlys/chats/widgets/chats_models.dart';
 import 'package:helpings_needlys/chats/models/motheds_chats.dart';
 import 'package:helpings_needlys/core/utils/colors.dart';
 import 'package:helpings_needlys/sharedpreferances/modle_get_date.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class UserChats extends StatelessWidget {
-  UserChats(
-      {Key? key,
-      required this.name,
-      required this.idUser,
-      required this.email,
-      required this.phone})
-      : super(key: key);
+// ignore: must_be_immutable
+class VolunteersChats extends StatelessWidget {
+  VolunteersChats({
+    Key? key,
+    required this.name,
+    required this.idUser,
+    required this.email,
+  }) : super(key: key);
   int idUser;
   String name;
   String email;
-  String phone;
 
   @override
   List<Info> infoList = [];
@@ -50,17 +48,6 @@ class UserChats extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(name),
-        actions: [
-          IconButton(
-              onPressed: () async {
-                try {
-                  await launch("tel:$phone");
-                } catch (e) {
-                  print(e);
-                }
-              },
-              icon: const Icon(Icons.call))
-        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,8 +56,10 @@ class UserChats extends StatelessWidget {
             child: GetBuilder<ChatController>(
               init: ChatController(),
               builder: (contr) => StreamBuilder<QuerySnapshot>(
-                  stream:
-                      contr.listenerChet(name: name, email: email, id: idUser),
+                  stream: contr.listenerChet(
+                      name: ModleGetDate.username,
+                      email: ModleGetDate.email,
+                      id: idUser),
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) {
                       return const Center(
@@ -114,21 +103,17 @@ class UserChats extends StatelessWidget {
             child: IconButton(
               icon: const Icon(Icons.send),
               onPressed: () async {
-                int id = await getConters(
-                    collectionVolunteer: usersIdConter,
-                    documentVolunteer: ModleGetDate.email,
-                    keyConter: 'chatConter');
-
                 int conter = await getContersUser(
                     collectionVolunteer: keyUserAll,
-                    documentVolunteer: name + email,
-                    collectionUser: '$id' + chstUser);
+                    documentVolunteer:
+                        ModleGetDate.username + ModleGetDate.email,
+                    collectionUser: '$idUser' + chstUser);
 
                 if (controller.text.isNotEmpty) {
                   sendMessage(
                     collection: keyUserAll,
-                    document: name + email,
-                    collectionUser: '$id' + chstUser,
+                    document: ModleGetDate.username + ModleGetDate.email,
+                    collectionUser: '$idUser' + chstUser,
                     conter: conter,
                     name: ModleGetDate.username,
                     email: ModleGetDate.email,
@@ -137,8 +122,9 @@ class UserChats extends StatelessWidget {
 
                   updateContersUser(
                     collectionVolunteer: keyUserAll,
-                    documentVolunteer: name + email,
-                    collectionUser: '$id' + chstUser,
+                    documentVolunteer:
+                        ModleGetDate.username + ModleGetDate.email,
+                    collectionUser: '$idUser' + chstUser,
                     idChatVolunteer: ++conter,
                   );
 
