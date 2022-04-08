@@ -9,6 +9,7 @@ import 'package:helpings_needlys/core/utils/getx_controller.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
 import 'package:helpings_needlys/localization/t_key_v.dart';
 import 'package:helpings_needlys/pages/volunteers/volunteers_setting.dart';
+import 'package:helpings_needlys/sharedpreferances/modle_get_date.dart';
 
 class VolunteersPage extends StatefulWidget {
   const VolunteersPage({Key? key}) : super(key: key);
@@ -25,6 +26,7 @@ class _VolunteersPageState extends State<VolunteersPage> {
 
   @override
   Widget build(BuildContext context) {
+    ModleGetDate().gett();
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -59,7 +61,6 @@ class _VolunteersPageState extends State<VolunteersPage> {
                               chatsConter: index.data!.docs
                                   .toList()[i]
                                   .get('chatConter'),
-                                  
                               context: context,
                               email:
                                   "${index.data!.docs.toList()[i].get('email')}",
@@ -88,6 +89,15 @@ class _VolunteersPageState extends State<VolunteersPage> {
             collectionVolunteer: usersIdConter,
             documentVolunteer: email,
             keyConter: 'chatConter');
+
+        createstUserChats(
+          collectionVolunteer: keyUserAll,
+          documentVolunteer: volunteersName + email,
+          collectionUser: "$id" + chstUser,
+          email: email,
+          message: 'مرحبا',
+          conter: 0,
+        );
 
         chats.email = email;
         chats.name = volunteersName;

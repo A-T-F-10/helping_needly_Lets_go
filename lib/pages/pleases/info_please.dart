@@ -9,6 +9,7 @@ import 'package:helpings_needlys/core/utils/size_confg.dart';
 import 'package:helpings_needlys/core/widgets/list_info_please.dart';
 import 'package:helpings_needlys/localization/t_key_v.dart';
 import 'package:helpings_needlys/pages/homepage.dart';
+import 'package:helpings_needlys/sharedpreferances/modle_get_date.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
@@ -83,6 +84,7 @@ class InofPlease extends StatelessWidget {
                   backgroundColor:
                       MaterialStateProperty.all(ColorsTheme.primaryColor)),
               onPressed: () {
+                ModleGetDate().gett();
                 Navigator.of(context).push(
                   MaterialPageRoute(builder: (__) => HomeChats()),
                 );

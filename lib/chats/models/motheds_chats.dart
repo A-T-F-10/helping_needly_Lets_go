@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:helpings_needlys/sharedpreferances/modle_get_date.dart';
 
@@ -52,6 +54,7 @@ void createstUserChats({
   required String collectionVolunteer,
   required String documentVolunteer,
   required String collectionUser,
+  required String email,
   required String message,
   required int conter,
 }) async {
@@ -59,7 +62,7 @@ void createstUserChats({
       .collection(collectionVolunteer)
       .doc(documentVolunteer)
       .collection(collectionUser)
-      .doc("$conter" + ModleGetDate.email)
+      .doc("$conter" + email)
       .set({
     'conter': conter,
     'message': message,
