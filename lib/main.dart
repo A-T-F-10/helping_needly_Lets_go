@@ -40,7 +40,6 @@ class MyAppState extends State<MyApp> {
     String locale = 'ar';
     return GetMaterialApp(
       themeMode: ThemeMode.system,
-      darkTheme: ColorsTheme.themeDark,
       translations: Translation(),
       locale: Locale(locale),
       fallbackLocale: Locale(locale),

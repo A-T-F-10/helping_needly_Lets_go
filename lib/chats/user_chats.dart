@@ -79,8 +79,6 @@ class UserChats extends StatelessWidget {
                     }
                     return ListView.builder(
                         reverse: false,
-                        keyboardDismissBehavior:
-                            ScrollViewKeyboardDismissBehavior.onDrag,
                         itemCount: snapshot.data!.docs.reversed.length,
                         itemBuilder: (context, index) {
                           return addWidgetText(
