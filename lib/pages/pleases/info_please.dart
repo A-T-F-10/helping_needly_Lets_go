@@ -85,6 +85,7 @@ class InofPlease extends StatelessWidget {
                       MaterialStateProperty.all(ColorsTheme.primaryColor)),
               onPressed: () {
                 ModleGetDate().gett();
+
                 Navigator.of(context).push(
                   MaterialPageRoute(builder: (__) => HomeChats()),
                 );

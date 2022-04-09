@@ -27,6 +27,7 @@ class _VolunteersPageState extends State<VolunteersPage> {
   @override
   Widget build(BuildContext context) {
     ModleGetDate().gett();
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -51,7 +52,7 @@ class _VolunteersPageState extends State<VolunteersPage> {
                 init: ChengegetxController(),
                 builder: (con) {
                   return ListView.builder(
-                    itemCount: index.data!.docs.toList().length,
+                    itemCount: index.data!.docs.reversed.toList().length,
                     itemBuilder: (context, i) {
                       return Card(
                         elevation: 10,
@@ -90,14 +91,21 @@ class _VolunteersPageState extends State<VolunteersPage> {
             documentVolunteer: email,
             keyConter: 'chatConter');
 
-        createstUserChats(
-          collectionVolunteer: keyUserAll,
-          documentVolunteer: volunteersName + email,
-          collectionUser: "$id" + chstUser,
-          email: email,
-          message: 'مرحبا',
-          conter: 0,
-        );
+        try {
+          await getContersUser(
+              collectionVolunteer: keyUserAll,
+              documentVolunteer: volunteersName + email,
+              collectionUser: '$id' + chstUser);
+        } catch (e) {
+          createstUserChats(
+            collectionVolunteer: keyUserAll,
+            documentVolunteer: volunteersName + email,
+            collectionUser: "$id" + chstUser,
+            email: email,
+            message: 'مرحبا',
+            conter: 0,
+          );
+        }
 
         chats.email = email;
         chats.name = volunteersName;
