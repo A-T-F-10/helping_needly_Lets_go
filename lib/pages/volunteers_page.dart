@@ -93,8 +93,9 @@ class _VolunteersPageState extends State<VolunteersPage> {
 
         try {
           await getContersUser(
+              email: email,
               collectionVolunteer: keyUserAll,
-              documentVolunteer: volunteersName + email,
+              documentVolunteer: ModleGetDate.username + ModleGetDate.email,
               collectionUser: '$id' + chstUser);
         } catch (e) {
           createstUserChats(

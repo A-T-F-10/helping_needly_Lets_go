@@ -92,14 +92,22 @@ class HomeChats extends StatelessWidget {
         chats.name = volunteersName;
         chats.photoUrl = volunteersNumber;
 
-        createstUserChats(
-          email: ModleGetDate.email,
-          collectionVolunteer: keyUserAll,
-          documentVolunteer: volunteersName + email,
-          collectionUser: "$id" + chstUser,
-          message: 'مرحبا',
-          conter: 0,
-        );
+        try {
+          await getContersUser(
+              email: ModleGetDate.email,
+              collectionVolunteer: keyUserAll,
+              documentVolunteer: volunteersName + email,
+              collectionUser: '$id' + chstUser);
+        } catch (e) {
+          createstUserChats(
+            email: ModleGetDate.email,
+            collectionVolunteer: keyUserAll,
+            documentVolunteer: volunteersName + email,
+            collectionUser: "$id" + chstUser,
+            message: 'مرحبا',
+            conter: 0,
+          );
+        }
 
         Get.offUntil(
             MaterialPageRoute(

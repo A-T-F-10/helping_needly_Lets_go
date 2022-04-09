@@ -100,12 +100,13 @@ void updateContersUser({
   required String documentVolunteer,
   required String collectionUser,
   required int idChatVolunteer,
+  required String email,
 }) async {
   await firestore
       .collection(collectionVolunteer)
       .doc(documentVolunteer)
       .collection(collectionUser)
-      .doc("0" + ModleGetDate.email)
+      .doc("0" + email)
       .update({'conter': idChatVolunteer});
 }
 
@@ -114,12 +115,13 @@ getContersUser({
   required String collectionVolunteer,
   required String documentVolunteer,
   required String collectionUser,
+  required String email,
 }) async {
   var conter = await firestore
       .collection(collectionVolunteer)
       .doc(documentVolunteer)
       .collection(collectionUser)
-      .doc("0" + ModleGetDate.email)
+      .doc("0" + email)
       .get();
 
   return conter['conter'];

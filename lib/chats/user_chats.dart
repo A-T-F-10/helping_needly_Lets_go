@@ -122,6 +122,7 @@ class UserChats extends StatelessWidget {
                 int conter = await getContersUser(
                     collectionVolunteer: keyUserAll,
                     documentVolunteer: name + email,
+                    email: ModleGetDate.email,
                     collectionUser: '$id' + chstUser);
 
                 if (controller.text.isNotEmpty) {
@@ -136,11 +137,11 @@ class UserChats extends StatelessWidget {
                   );
 
                   updateContersUser(
-                    collectionVolunteer: keyUserAll,
-                    documentVolunteer: name + email,
-                    collectionUser: '$id' + chstUser,
-                    idChatVolunteer: ++conter,
-                  );
+                      collectionVolunteer: keyUserAll,
+                      documentVolunteer: name + email,
+                      collectionUser: '$id' + chstUser,
+                      idChatVolunteer: ++conter,
+                      email: ModleGetDate.email);
 
                   controller.clear();
                 }

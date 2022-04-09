@@ -105,6 +105,7 @@ class VolunteersChats extends StatelessWidget {
               onPressed: () async {
                 int conter = await getContersUser(
                     collectionVolunteer: keyUserAll,
+                    email: email,
                     documentVolunteer:
                         ModleGetDate.username + ModleGetDate.email,
                     collectionUser: '$idUser' + chstUser);
@@ -127,6 +128,7 @@ class VolunteersChats extends StatelessWidget {
                     documentVolunteer:
                         ModleGetDate.username + ModleGetDate.email,
                     collectionUser: '$idUser' + chstUser,
+                    email: email,
                     idChatVolunteer: ++conter,
                   );
 
