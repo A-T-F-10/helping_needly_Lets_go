@@ -67,7 +67,7 @@ class VolunteersChats extends StatelessWidget {
                       );
                     }
                     return ListView.builder(
-                        reverse: true,
+                        reverse: false,
                         keyboardDismissBehavior:
                             ScrollViewKeyboardDismissBehavior.onDrag,
                         itemCount: snapshot.data!.docs.reversed.length,
