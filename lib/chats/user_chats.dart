@@ -77,6 +77,7 @@ class UserChats extends StatelessWidget {
                         child: CircularProgressIndicator(),
                       );
                     }
+
                     return ListView.builder(
                         reverse: false,
                         itemCount: snapshot.data!.docs.reversed.length,
