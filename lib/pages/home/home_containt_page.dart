@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:helpings_needlys/chats/controlls/gst_controller.dart';
 import 'package:helpings_needlys/core/utils/colors.dart';
 import 'package:helpings_needlys/core/utils/getx_controller.dart';
+import 'package:helpings_needlys/core/utils/search_con.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
 import 'package:helpings_needlys/core/widgets/search.dart';
 import 'package:helpings_needlys/localization/t_key_v.dart';
 import 'package:helpings_needlys/models/info/images_list.dart';
 import 'package:helpings_needlys/models/info/info.dart';
 import 'package:helpings_needlys/pages/pleases/pleases.dart';
-import 'package:helpings_needlys/pages/speech_mace.dart';
 import '../../core/utils/colors.dart';
 
 class HomeContaintPage extends StatelessWidget {
@@ -17,63 +16,56 @@ class HomeContaintPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SearchController().activateSpeechRecognizer();
     SizeConfig().init(context);
     return GetBuilder<ChengegetxController>(
         init: ChengegetxController(),
         builder: (con) {
           return ListView(
             children: [
-              Padding(
-                padding: EdgeInsets.all(
-                  SizeConfig.defaultSize! / 10,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.share,
-                          size: SizeConfig.defaultSize! * 3.5,
-                          color: ColorsTheme.darkPrimaryColor,
-                        )),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.notification_important,
-                          size: SizeConfig.defaultSize! * 3.5,
-                          color: ColorsTheme.darkPrimaryColor,
-                        )),
-                  ],
-                ),
-              ),
               SizedBox(
                 child: Image.asset(
                   'assets/images/Logo.png',
                 ),
                 height: SizeConfig.screenHeight! * .35,
               ),
-              InkWell(
-                onTap: () {
-                  showSearch(context: context, delegate: Search());
-                },
-                child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        border:
-                            Border.all(color: ColorsTheme.darkPrimaryColor)),
-                    width: SizeConfig.screenWidth! / 5,
-                    height: SizeConfig.screenHeight! / 13,
-                    padding: EdgeInsets.all(SizeConfig.screenHeight! / 90),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.search_rounded,
-                          color: ColorsTheme.darkPrimaryColor,
-                        ),
-                      ],
-                    )),
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: InkWell(
+                  onTap: () {
+                    showSearch(
+                      context: context,
+                      delegate: Search(),
+                    );
+                  },
+                  child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border:
+                              Border.all(color: ColorsTheme.darkPrimaryColor)),
+                      width: SizeConfig.screenWidth! / 5,
+                      height: SizeConfig.screenHeight! / 13,
+                      padding: EdgeInsets.all(SizeConfig.screenHeight! / 90),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(
+                            Icons.search_rounded,
+                            color: ColorsTheme.darkPrimaryColor,
+                          ),
+                          Text(
+                            TKeys().search,
+                            style: TextStyle(
+                                color: ColorsTheme.darkPrimaryColor,
+                                fontSize: SizeConfig.screenHeight! / 45),
+                          ),
+                          Icon(
+                            Icons.mic_none,
+                            color: ColorsTheme.darkPrimaryColor,
+                          ),
+                        ],
+                      )),
+                ),
               ),
               SizedBox(
                 width: SizeConfig.screenWidth! * 10,
