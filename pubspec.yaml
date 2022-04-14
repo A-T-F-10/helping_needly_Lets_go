@@ -32,8 +32,8 @@ dependencies:
   speech_to_text:
   avatar_glow: 
   grouped_list: 
-  intl: 
- 
+  intl:   
+
 
 dev_dependencies:
   flutter_lints: ^1.0.0
