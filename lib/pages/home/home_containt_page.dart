@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:helpings_needlys/chats/controlls/gst_controller.dart';
 import 'package:helpings_needlys/core/utils/colors.dart';
 import 'package:helpings_needlys/core/utils/getx_controller.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
@@ -26,25 +25,6 @@ class HomeContaintPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(
                   SizeConfig.defaultSize! / 10,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.share,
-                          size: SizeConfig.defaultSize! * 3.5,
-                          color: ColorsTheme.darkPrimaryColor,
-                        )),
-                    IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.notification_important,
-                          size: SizeConfig.defaultSize! * 3.5,
-                          color: ColorsTheme.darkPrimaryColor,
-                        )),
-                  ],
                 ),
               ),
               SizedBox(
