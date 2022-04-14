@@ -47,21 +47,6 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
                 ),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                customText(
-                  size: SizeConfig.defaultSize! * controller.sizex,
-                  text: TKeys().reader,
-                ),
-                Switch(
-                  value: controller.chengeView,
-                  onChanged: (c) {
-                    controller.chengeViews();
-                  },
-                ),
-              ],
-            ),
             customText(
                 size: SizeConfig.defaultSize! * controller.sizex,
                 text: TKeys().language,
