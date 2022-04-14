@@ -13,7 +13,11 @@ class Search extends SearchDelegate {
         onPressed: () {
           query = '';
         },
-      )
+      ),
+      IconButton(
+        icon: const Icon(Icons.mic),
+        onPressed: () {},
+      ),
     ];
   }
 
