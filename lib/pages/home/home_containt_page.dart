@@ -53,47 +53,27 @@ class HomeContaintPage extends StatelessWidget {
                 ),
                 height: SizeConfig.screenHeight! * .5,
               ),
-              Padding(
-                padding: EdgeInsets.all(SizeConfig.screenHeight! / 90),
-                child: TextField(
-                  onTap: () {
-                    showSearch(context: context, delegate: Search());
-                  },
-                  readOnly: true,
-                  decoration: InputDecoration(
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(20),
-                        ),
-                        borderSide: BorderSide(
+              InkWell(
+                onTap: () {
+                  showSearch(context: context, delegate: Search());
+                },
+                child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border:
+                            Border.all(color: ColorsTheme.darkPrimaryColor)),
+                    width: SizeConfig.screenWidth! / 5,
+                    height: SizeConfig.screenHeight! / 13,
+                    padding: EdgeInsets.all(SizeConfig.screenHeight! / 90),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.search_rounded,
                           color: ColorsTheme.darkPrimaryColor,
-                        )),
-                    prefix: IconButton(
-                      icon: const Icon(Icons.mic),
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => SpeechMace(),
-                          ),
-                        );
-                      },
-                    ),
-                    suffix: IconButton(
-                      icon: const Icon(Icons.search_rounded),
-                      onPressed: () {
-                        showSearch(context: context, delegate: Search());
-                      },
-                    ),
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: ColorsTheme.darkPrimaryColor,
-                      ),
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                    ),
-                  ),
-                ),
+                        ),
+                      ],
+                    )),
               ),
               SizedBox(
                 width: SizeConfig.screenWidth! * 10,
