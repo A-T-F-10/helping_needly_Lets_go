@@ -12,6 +12,11 @@ class SearchController extends GetxController {
   String transcription = '';
   Language selectedLang = const Language('Arabic', 'ar_SA');
 
+  void change() {
+    isListening = !isListening;
+    update();
+  }
+
   Future<void> activateSpeechRecognizer() async {
     speech = SpeechToText();
     speechRecognitionAvailable = await speech.initialize(

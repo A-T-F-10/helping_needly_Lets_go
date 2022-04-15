@@ -77,7 +77,7 @@ class ConnectContaintPage extends StatelessWidget {
   }
 
   emailBoutton() async {
-    const email = 'fdxgcujsfd@gmail.com';
+    const email = 'letsg9826@gmail.com';
     Uri url = Uri(
         scheme: "mailto", path: email, queryParameters: {'subject': 'مرحبا'});
     if (await canLaunch(url.toString())) {
@@ -86,7 +86,7 @@ class ConnectContaintPage extends StatelessWidget {
   }
 
   phoneBoutton() async {
-    const urlPhone = 'tel: 05748474856';
+    const urlPhone = 'tel: 0538938216';
     if (await canLaunch(urlPhone)) {
       await launch(urlPhone);
     }
