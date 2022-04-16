@@ -17,6 +17,7 @@ List<String> marketsImages = [
   "assets/imagePleases/markets/هيفاء مول.jpeg",
   "assets/imagePleases/markets/الاندلس مول.jpeg",
   "assets/imagePleases/markets/السلام مول.jpeg",
+  "assets/imagePleases/hotels/فندق تاج جدة.jpeg",
   "assets/imagePleases/markets/الجامعه بلازا.jpeg",
 ];
 
@@ -136,5 +137,6 @@ List images = [
   "assets/imagePleases/hotels/فندق الدار البيضاء.jpeg",
   "assets/imagePleases/hotels/فندق ميراج.jpeg",
   "assets/imagePleases/hotels/فندق كراون بلازا.jpeg",
+  "assets/imagePleases/hotels/فندق تاج جدة.jpeg",
   "assets/imagePleases/hotels/فندق تاج جدة.jpeg",
 ];
