@@ -91,13 +91,17 @@ class Search extends SearchDelegate {
     List matchIco = [];
     List matchURL = [];
     List matchImsge = [];
+    int count = 0;
+
+    List<List> all = [matchQuery, matchIco, matchURL];
 
     for (var i in search[0]) {
+      count++;
       if (i.toLowerCase().contains(query.toLowerCase())) {
         matchQuery.add(i);
-        matchURL.add(search[2][matchQuery.indexOf(i)]);
-        matchIco.add(search[1][matchQuery.indexOf(i)]);
-        matchImsge.add(images);
+        matchURL.add(search[2][count - 1]);
+        matchIco.add(search[1][count - 1]);
+        matchImsge.add(images[count - 1]);
       }
     }
     return ListView.builder(
@@ -111,14 +115,10 @@ class Search extends SearchDelegate {
           child: ListTile(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (__) {
-                search[0] = matchQuery;
-                search[2] = matchURL;
-                search[1] = matchIco;
-
                 return InofPlease(
-                  search,
+                  all,
                   itme,
-                  imageListb: images,
+                  imageListb: matchImsge,
                 );
               }));
             },
