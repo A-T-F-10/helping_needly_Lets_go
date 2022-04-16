@@ -107,8 +107,6 @@ class VolunteersChats extends StatelessWidget {
                         ModleGetDate.username + ModleGetDate.email,
                     collectionUser: '$idUser' + chstUser);
 
-                print(conter);
-
                 if (controller.text.isNotEmpty) {
                   sendMessage(
                     collection: keyUserAll,
@@ -183,7 +181,7 @@ Widget textFieldWidget(BuildContext context,
           enabledBorder: InputBorder.none,
           border: InputBorder.none),
       onSubmitted: (String text) {
-        final message = Info(
+        Info(
           text: controller.text,
         );
       },

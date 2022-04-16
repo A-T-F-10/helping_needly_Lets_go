@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         bottomNavigationBar: menu(),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
             HomeContaintPage(),
             ConnectContaintPage(),
@@ -38,20 +38,20 @@ class HomePage extends StatelessWidget {
         labelColor: Colors.white,
         unselectedLabelColor: Colors.white70,
         indicatorSize: TabBarIndicatorSize.tab,
-        indicatorPadding: EdgeInsets.all(5.0),
+        indicatorPadding: const EdgeInsets.all(5.0),
         indicatorColor: Colors.cyan,
         tabs: [
           Tab(
             text: TKeys().home,
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
           ),
           Tab(
             text: TKeys().connect,
-            icon: Icon(Icons.contact_support),
+            icon: const Icon(Icons.contact_support),
           ),
           Tab(
             text: TKeys().setting,
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
           ),
         ],
       ),

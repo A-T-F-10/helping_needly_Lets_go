@@ -43,7 +43,7 @@ class _VolunteersSettingsPageState extends State<VolunteersSettingsPage> {
           return ListView(
             children: [
               Container(
-                padding: EdgeInsets.all(12),
+                padding: const EdgeInsets.all(12),
                 child: Center(
                   child: customText(
                     size: SizeConfig.defaultSize! * controller.sizex,
@@ -116,7 +116,7 @@ class _VolunteersSettingsPageState extends State<VolunteersSettingsPage> {
               theme: dispose.controller!.valueColors,
               size: dispose.controller!.sizex,
               value: dispose.controller!.valueSize);
-          print("${dispose.controller!.sizex}  dispose");
+
           ModleGetDate().gett();
         },
       ),

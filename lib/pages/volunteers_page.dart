@@ -36,7 +36,7 @@ class _VolunteersPageState extends State<VolunteersPage> {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const VolunteersSettingsPage()));
             },
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
           ),
         ],
         centerTitle: true,
@@ -119,7 +119,7 @@ class _VolunteersPageState extends State<VolunteersPage> {
                     )),
             (route) => true);
       },
-      subtitle: Text('مرحبا'),
+      subtitle: const Text('مرحبا'),
       leading: const CircleAvatar(child: Icon(Icons.person)),
       title: Text(volunteersName,
           style: TextStyle(fontSize: SizeConfig.defaultSize! * size)),

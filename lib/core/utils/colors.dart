@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ColorsTheme {
-  static Color darkPrimaryColor = Color(0xFF00796B);
-  static Color primaryColor = Color(0xFF009688);
-  static Color secondColor = Color(0xFFD9D9D9);
-  static Color lightPrimaryColor = Color(0xFFB2DFD);
-  static Color whiteColor = Color(0xFFFFFFFF);
-  static Color blackColor = Color(0xFF212121);
-  static Color sliderdColor = Color.fromARGB(255, 121, 127, 129);
-  static Color sliderdColor2 = Color.fromARGB(255, 63, 72, 75);
+  static Color darkPrimaryColor = const Color(0xFF00796B);
+  static Color primaryColor = const Color(0xFF009688);
+  static Color secondColor = const Color(0xFFD9D9D9);
+  static Color lightPrimaryColor = const Color(0x0ffb2dfd);
+  static Color whiteColor = const Color(0xFFFFFFFF);
+  static Color blackColor = const Color(0xFF212121);
+  static Color sliderdColor = const Color.fromARGB(255, 121, 127, 129);
+  static Color sliderdColor2 = const Color.fromARGB(255, 63, 72, 75);
 
   static ThemeData themeData = themeLight;
 

@@ -48,4 +48,8 @@ class KeysText {
   static String save = "save".tr;
   static String searchForCharity = "searchForCharity".tr;
   static String ok = "ok".tr;
+  static String checkEmail = "checkEmail".tr;
+  static String send = "send".tr;
+  static String checkEmailSent = "checkEmailSent".tr;
+  static String resetPassword = "resetPassword".tr;
 }

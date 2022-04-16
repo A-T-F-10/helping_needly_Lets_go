@@ -39,7 +39,7 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
         return ListView(
           children: [
             Container(
-              padding: EdgeInsets.all(12),
+              padding: const EdgeInsets.all(12),
               child: Center(
                 child: customText(
                   size: SizeConfig.defaultSize! * controller.sizex,
@@ -97,7 +97,7 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
             theme: dispose.controller!.valueColors,
             size: dispose.controller!.sizex,
             value: dispose.controller!.valueSize);
-        print("${dispose.controller!.sizex}  dispose");
+
         ModleGetDate().gett();
       },
     );

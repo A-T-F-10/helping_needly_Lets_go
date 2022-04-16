@@ -55,9 +55,7 @@ class UserChats extends StatelessWidget {
               onPressed: () async {
                 try {
                   await launch("tel:$phone");
-                } catch (e) {
-                  print(e);
-                }
+                } catch (e) {}
               },
               icon: const Icon(Icons.call))
         ],
@@ -196,7 +194,7 @@ Widget textFieldWidget(BuildContext context,
           enabledBorder: InputBorder.none,
           border: InputBorder.none),
       onSubmitted: (String text) {
-        final message = Info(
+        Info(
           text: controller.text,
         );
       },

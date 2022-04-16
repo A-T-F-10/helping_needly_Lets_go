@@ -137,7 +137,7 @@ class Search extends SearchDelegate {
 
   void start() => speech
       .listen(onResult: onRecognitionResult, localeId: selectedLang.code)
-      .then((value) => Future.delayed(Duration(seconds: 3), () {
+      .then((value) => Future.delayed(const Duration(seconds: 3), () {
             isListening = !isListening;
           }));
 

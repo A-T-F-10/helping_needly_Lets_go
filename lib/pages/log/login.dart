@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
 import 'package:helpings_needlys/core/widgets/sigin_mathod.dart';
 import 'package:helpings_needlys/core/widgets/snack_bar.dart';
 import 'package:helpings_needlys/core/widgets/text_form_field.dart';
 import 'package:helpings_needlys/localization/t_key_v.dart';
 import 'package:helpings_needlys/pages/homepage.dart';
+import 'package:helpings_needlys/pages/log/reset.dart';
 import 'package:helpings_needlys/pages/log/sign_up.dart';
 import 'package:helpings_needlys/sharedpreferances/keys_sharedpreferances.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,9 +44,9 @@ class LogInState extends State<LogIn> {
                 child: Image.asset(
                   'assets/images/Logo.png',
                 ),
-                height: SizeConfig.screenHeight! * .30,
+                height: SizeConfig.screenHeight! / 2.5,
               ),
-              SizedBox(height: SizeConfig.screenHeight! * .10),
+              SizedBox(height: SizeConfig.screenHeight! / 30),
               SizedBox(
                 height: SizeConfig.screenHeight! * .11,
                 width: SizeConfig.screenWidth! / 1.1,
@@ -94,21 +94,25 @@ class LogInState extends State<LogIn> {
                                     (route) => false));
                       } catch (e) {
                         // ignore: deprecated_member_use
-                        globalKey.currentState
-                            ?.showSnackBar(snackBar(text: TKeys().account));
+                        globalKey.currentState?.showSnackBar(snackBar(
+                            text:
+                                'البريد الالكتروني او كلمة المرور غير صحيحة'));
                       }
                     }
                   }),
               // const SizedBox(height: 30),
               textAndButton(
                   text: 'هل نسيت كلمة المرور ؟',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ResetPassword()));
+                  },
                   textButton: 'تغيير كلمة المرور'),
               textAndButton(
                   text: 'ليس لديك حساب ؟',
                   onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => SignUp()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SignUp()));
                   },
                   textButton: TKeys().signUp),
               const SizedBox(),

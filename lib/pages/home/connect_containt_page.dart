@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:helpings_needlys/core/utils/colors.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
+import 'package:helpings_needlys/localization/t_key_v.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ConnectContaintPage extends StatelessWidget {
@@ -35,7 +36,7 @@ class ConnectContaintPage extends StatelessWidget {
                   color: borderColor,
                 ),
                 Text(
-                  'Email',
+                  TKeys().email,
                   style: TextStyle(fontSize: 20, color: ColorsTheme.blackColor),
                 ),
               ],
@@ -62,7 +63,7 @@ class ConnectContaintPage extends StatelessWidget {
                   color: borderColor,
                 ),
                 Text(
-                  'Phone',
+                  TKeys().phoneNumber,
                   style: TextStyle(
                     fontSize: 20,
                     color: ColorsTheme.blackColor,

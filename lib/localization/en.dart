@@ -500,5 +500,9 @@ Map<String, String> en = {
   "aboutContainsPage": "About Contains Page",
   " Restaurants and Coffees": "Restaurants and Coffees",
   "hotelsAndChalets": "Hotels and Chalets",
-  "you": "You"
+  "you": "You",
+  "checkEmail": "Check your email",
+  "checkEmailSent": "Check your email sent",
+  "send": "Send",
+  "resetPassword": "Reset Password",
 };

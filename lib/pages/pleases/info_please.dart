@@ -61,12 +61,12 @@ class InofPlease extends StatelessWidget {
                   onTap: () async {
                     await launch(lisr[2][item]);
                   },
-                  leading: Icon(Icons.location_on_outlined),
+                  leading: const Icon(Icons.location_on_outlined),
                   title: Text(lisr[1][item],
                       style: TextStyle(
                           fontSize:
                               SizeConfig.defaultSize! * controller.sizex)),
-                  trailing: Icon(Icons.exit_to_app),
+                  trailing: const Icon(Icons.exit_to_app),
                 ),
               ],
             ),

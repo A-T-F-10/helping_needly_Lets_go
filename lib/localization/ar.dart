@@ -245,5 +245,9 @@ Map<String, String> ar = {
   "connectWithUs": "اتصل بنا",
   "aboutContainsPage": "حول يحتوي على صفحة",
   "hotelsAndChalets": "الفنادق و الشاليهات",
-  "you": "أنت"
+  "you": "أنت",
+  "checkEmail": "تحقق من البريد الإلكتروني",
+  "checkEmailSent": "تم إرسال رسالة تحقق إلى البريد الإلكتروني الخاص بك",
+  "send": "إرسال",
+  "resetPassword": "إعادة تعين كلمة المرور",
 };
