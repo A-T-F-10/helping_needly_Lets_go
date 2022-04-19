@@ -505,4 +505,5 @@ Map<String, String> en = {
   "checkEmailSent": "Check your email sent",
   "send": "Send",
   "resetPassword": "Reset Password",
+  "areyoursurelogout": "Are you sure you want to logout?",
 };

@@ -250,4 +250,5 @@ Map<String, String> ar = {
   "checkEmailSent": "تم إرسال رسالة تحقق إلى البريد الإلكتروني الخاص بك",
   "send": "إرسال",
   "resetPassword": "إعادة تعين كلمة المرور",
+  "areyoursurelogout": "هل أنت متأكد من أنك تريد تسجيل الخروج؟",
 };

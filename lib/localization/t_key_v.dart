@@ -67,6 +67,9 @@ class TKeys {
   String send = "send".tr;
   String checkEmailSent = "checkEmailSent".tr;
   String resetPassword = "resetPassword".tr;
+  String logout = "logout".tr;
+  String cancel = "cancel".tr;
+  String areyoursurelogout = "areyoursurelogout".tr;
 }
 
 //TKeys.hello

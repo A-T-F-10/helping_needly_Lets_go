@@ -27,7 +27,7 @@ class HomeContaintPage extends StatelessWidget {
                 child: Image.asset(
                   'assets/images/Logo.png',
                 ),
-                height: SizeConfig.screenHeight! * .35,
+                height: SizeConfig.screenHeight! * .40,
               ),
               Padding(
                 padding: const EdgeInsets.all(12),

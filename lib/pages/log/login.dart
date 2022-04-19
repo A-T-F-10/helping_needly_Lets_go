@@ -84,6 +84,8 @@ class LogInState extends State<LogIn> {
                         SharedPreferences preferences =
                             await SharedPreferences.getInstance();
                         preferences.setInt(KeysSharedpreferances.PAGE, 0);
+                        preferences.setString(
+                            KeysSharedpreferances.EMAIL, email.text.trim());
                         await signinWithEmailandPass(context,
                                 email: email.text.trim(),
                                 password: passward.text.trim())

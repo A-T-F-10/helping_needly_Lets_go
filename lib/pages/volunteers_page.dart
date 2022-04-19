@@ -5,11 +5,14 @@ import 'package:helpings_needlys/chats/key_uesr.dart';
 import 'package:helpings_needlys/chats/models/motheds_chats.dart';
 import 'package:helpings_needlys/chats/models/volunteers_chats.dart';
 import 'package:helpings_needlys/chats/widgets/chats_models.dart';
+import 'package:helpings_needlys/core/utils/colors.dart';
 import 'package:helpings_needlys/core/utils/getx_controller.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
 import 'package:helpings_needlys/localization/t_key_v.dart';
-import 'package:helpings_needlys/pages/volunteers/volunteers_setting.dart';
+import 'package:helpings_needlys/pages/volunteers/login_volunteer.dart';
+import 'package:helpings_needlys/sharedpreferances/keys_sharedpreferances.dart';
 import 'package:helpings_needlys/sharedpreferances/modle_get_date.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class VolunteersPage extends StatefulWidget {
   const VolunteersPage({Key? key}) : super(key: key);
@@ -32,12 +35,73 @@ class _VolunteersPageState extends State<VolunteersPage> {
       appBar: AppBar(
         actions: [
           IconButton(
+            padding:
+                EdgeInsets.symmetric(horizontal: SizeConfig.screenWidth! / 15),
+            icon: const Icon(Icons.logout),
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const VolunteersSettingsPage()));
+              showDialog(
+                  context: context,
+                  builder: (__) {
+                    return Dialog(
+                      child: SizedBox(
+                          height: 180,
+                          child: Column(
+                            children: [
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text(TKeys().logout),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Text(TKeys().areyoursurelogout),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  ElevatedButton.icon(
+                                    style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all(
+                                                ColorsTheme.darkPrimaryColor)),
+                                    onPressed: () async {
+                                      SharedPreferences preferences =
+                                          await SharedPreferences.getInstance();
+
+                                      preferences
+                                          .remove(KeysSharedpreferances.EMAIL);
+                                      Navigator.of(context).pushAndRemoveUntil(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const VolunteersLogIn()),
+                                          (route) => false);
+                                    },
+                                    icon: const Icon(Icons.logout),
+                                    label: Text(TKeys().logout),
+                                  ),
+                                  ElevatedButton.icon(
+                                    style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all(
+                                                Colors.red)),
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    icon: const Icon(Icons.cancel),
+                                    label: Text(TKeys().cancel),
+                                  ),
+                                ],
+                              )
+                            ],
+                          )),
+                    );
+                  });
             },
-            icon: const Icon(Icons.settings),
-          ),
+          )
         ],
         centerTitle: true,
         title: Text(TKeys().volunteers),
