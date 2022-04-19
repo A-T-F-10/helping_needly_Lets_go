@@ -13,7 +13,7 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsTheme.darkPrimaryColor,
+      backgroundColor: ColorsTheme.whiteColor,
       body: SizedBox(
         width: double.infinity,
         child: Column(
@@ -70,7 +70,7 @@ class FirstPage extends StatelessWidget {
           ),
           style: ButtonStyle(
               backgroundColor:
-                  MaterialStateProperty.all(ColorsTheme.blackColor)),
+                  MaterialStateProperty.all(ColorsTheme.primaryColor)),
         ),
       ),
     );
