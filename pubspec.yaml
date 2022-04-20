@@ -33,6 +33,8 @@ dependencies:
   avatar_glow: 
   grouped_list: 
   intl:   
+  firebase_messaging:
+  http:
 
 
 dev_dependencies:
