@@ -1,7 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:helpings_needlys/chats/controlls/volunteers_cont.dart';
 import 'package:helpings_needlys/chats/home_chats.dart';
 import 'package:helpings_needlys/core/utils/colors.dart';
 import 'package:helpings_needlys/core/utils/getx_controller.dart';
@@ -63,12 +61,12 @@ class InofPlease extends StatelessWidget {
                   onTap: () async {
                     await launch(lisr[2][item]);
                   },
-                  leading: Icon(Icons.location_on_outlined),
+                  leading: const Icon(Icons.location_on_outlined),
                   title: Text(lisr[1][item],
                       style: TextStyle(
                           fontSize:
                               SizeConfig.defaultSize! * controller.sizex)),
-                  trailing: Icon(Icons.exit_to_app),
+                  trailing: const Icon(Icons.exit_to_app),
                 ),
               ],
             ),

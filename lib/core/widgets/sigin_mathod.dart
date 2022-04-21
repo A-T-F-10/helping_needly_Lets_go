@@ -14,6 +14,18 @@ Future signinWithEmailandPass(BuildContext context,
   }
 }
 
+Future resetPassword({
+  String? email,
+}) async {
+  final firebaseAuth =
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email!);
+  try {
+    return firebaseAuth;
+  } on FirebaseAuthException catch (e) {
+    Utils.showSnackBar(e.message);
+  }
+}
+
 Future createnWithEmailandPass(BuildContext context,
     {required String email, required String password}) async {
   return await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -26,10 +38,9 @@ class Utils {
   static final messengerKey = GlobalKey<ScaffoldMessengerState>();
   static showSnackBar(String? text) {
     if (text == null) return;
-
     final snackBar = SnackBar(
       content: Text(text),
-      backgroundColor: Color.fromARGB(255, 66, 43, 41),
+      backgroundColor: const Color.fromARGB(255, 66, 43, 41),
     );
     messengerKey.currentState!
       ..removeCurrentSnackBar()

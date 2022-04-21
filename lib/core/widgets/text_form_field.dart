@@ -50,8 +50,9 @@ class TextFormFieldItem extends StatelessWidget {
           ),
         ),
         autovalidateMode: AutovalidateMode.onUserInteraction,
-        validator: (email) => email != null && EmailValidator.validate(email)
-            ? 'Please Fill $errmess Input'
-            : null);
+        validator: (email) =>
+            email != null && EmailValidator.validate(email + ' ')
+                ? ' $errmess Input'
+                : null);
   }
 }

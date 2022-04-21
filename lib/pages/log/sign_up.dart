@@ -34,7 +34,6 @@ class SignUpState extends State<SignUp> {
         backgroundColor: ColorsTheme.darkPrimaryColor,
         title: Text(
           TKeys().signUp,
-          style: TextStyle(),
         ),
       ),
       body: SingleChildScrollView(

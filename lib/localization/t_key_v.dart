@@ -63,6 +63,13 @@ class TKeys {
   String outdoor = 'outdoor'.tr;
   String elevator = 'elevator'.tr;
   String information = 'information'.tr;
+  String checkEmail = "checkEmail".tr;
+  String send = "send".tr;
+  String checkEmailSent = "checkEmailSent".tr;
+  String resetPassword = "resetPassword".tr;
+  String logout = "logout".tr;
+  String cancel = "cancel".tr;
+  String areyoursurelogout = "areyoursurelogout".tr;
 }
 
 //TKeys.hello

@@ -8,9 +8,9 @@ class VolunteersController extends GetxController {
     Map<String, dynamic> map = {};
 
     await firestore.collection(keyUserAll).get().then((value) {
-      value.docs.forEach((element) {
+      for (var element in value.docs) {
         map[element.id] = element.data();
-      });
+      }
     });
     return map;
   }

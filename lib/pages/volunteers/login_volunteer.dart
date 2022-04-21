@@ -4,6 +4,7 @@ import 'package:helpings_needlys/core/widgets/sigin_mathod.dart';
 import 'package:helpings_needlys/core/widgets/snack_bar.dart';
 import 'package:helpings_needlys/core/widgets/text_form_field.dart';
 import 'package:helpings_needlys/localization/t_key_v.dart';
+import 'package:helpings_needlys/pages/log/reset.dart';
 import 'package:helpings_needlys/pages/volunteers/signup_volunteer.dart';
 import 'package:helpings_needlys/pages/volunteers_page.dart';
 import 'package:helpings_needlys/sharedpreferances/keys_sharedpreferances.dart';
@@ -89,7 +90,8 @@ class VolunteersLogInState extends State<VolunteersLogIn> {
                             .then((value) => Navigator.of(context)
                                 .pushAndRemoveUntil(
                                     MaterialPageRoute(
-                                        builder: (context) => VolunteersPage()),
+                                        builder: (context) =>
+                                            const VolunteersPage()),
                                     (route) => false));
                       } catch (e) {
                         // ignore: deprecated_member_use
@@ -101,7 +103,10 @@ class VolunteersLogInState extends State<VolunteersLogIn> {
               // const SizedBox(height: 30),
               textAndButton(
                   text: 'هل نسيت كلمة المرور؟',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ResetPassword()));
+                  },
                   textButton: 'تغيير كلمة المرور'),
               textAndButton(
                   text: 'اذا ليس لديك حساب ؟ ',

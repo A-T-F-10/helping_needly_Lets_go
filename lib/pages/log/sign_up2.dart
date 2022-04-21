@@ -137,10 +137,10 @@ class SignUp2State extends State<SignUp2> {
                     return;
                   } else {
                     await createnWithEmailandPass(context,
-                        email: email.trim(), password: password);
+                        email: email.trim(), password: password.trim());
 
                     Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(builder: (context) => LogIn()),
+                        MaterialPageRoute(builder: (context) => const LogIn()),
                         (route) => true);
                   }
                 } on FirebaseAuthException catch (e) {

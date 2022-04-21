@@ -116,7 +116,6 @@ class VolunteersSignUp2State extends State<VolunteersSignUp2> {
                 SharedpreferancesSignup().saveData(users1: users);
 
                 try {
-                  print(email);
                   if (email.isEmpty) {
                     // ignore: deprecated_member_use
                     globalKey.currentState?.showSnackBar(

@@ -15,11 +15,9 @@ dependencies:
     sdk: flutter
   flutter_localizations: 
     sdk: flutter
-
-
   firebase:
   localization:
-  google_sign_in: 
+
   firebase_auth: 
   cloud_firestore:
   email_validator:
@@ -32,6 +30,7 @@ dependencies:
   speech_to_text:
   avatar_glow: 
   grouped_list: 
+  flutter_launcher_icons: 
   intl:   
   firebase_messaging:
   http:
@@ -41,6 +40,12 @@ dev_dependencies:
   flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/Logo2.png"
+
+
 
 flutter:
 

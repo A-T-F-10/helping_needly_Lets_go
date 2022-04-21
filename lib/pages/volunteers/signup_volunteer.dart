@@ -35,7 +35,6 @@ class VolunteersSignUpState extends State<VolunteersSignUp> {
         backgroundColor: ColorsTheme.darkPrimaryColor,
         title: Text(
           TKeys().signUp,
-          style: TextStyle(),
         ),
       ),
       body: SingleChildScrollView(
