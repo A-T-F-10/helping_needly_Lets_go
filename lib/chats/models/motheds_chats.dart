@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:helpings_needlys/sharedpreferances/modle_get_date.dart';
 
@@ -13,14 +11,14 @@ void createstVolunteer({
   required String volunteerPhone,
   required int volunteerGender,
   required int idChatVolunteer,
-  required int idCconterVolunteer,
+  required String token,
 }) async {
   await firestore.collection(collectionVolunteer).doc(documentVolunteer).set({
     'name': volunteerName,
     'email': volunteerEmail,
     'phone': volunteerPhone,
     'gender': volunteerGender,
-    'idConter': idCconterVolunteer,
+    'token': token,
     'chatConter': idChatVolunteer
   });
 }
@@ -56,6 +54,7 @@ void createstUserChats({
   required String collectionUser,
   required String email,
   required String message,
+  required String token,
   required int conter,
 }) async {
   await firestore
@@ -66,6 +65,7 @@ void createstUserChats({
       .set({
     'conter': conter,
     'message': message,
+    'token': token,
     'email': ModleGetDate.email,
     'name': ModleGetDate.username,
     'time': FieldValue.serverTimestamp(),
@@ -132,11 +132,13 @@ void createstUser({
   required String documentUser,
   required String volunteerName,
   required String volunteerEmail,
+  required String token,
   required int idChatVolunteer,
 }) async {
   await firestore.collection(collectionUser).doc(documentUser).set({
     'name': volunteerName,
     'email': volunteerEmail,
+    'token': token,
     'chatConter': idChatVolunteer
   });
 }

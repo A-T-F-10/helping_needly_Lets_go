@@ -8,6 +8,7 @@
 .buildlog/
 .history
 .svn/
+lib/core/utils/token.dart
 
 # IntelliJ related
 *.iml

@@ -102,8 +102,10 @@ class VolunteersSignUp2State extends State<VolunteersSignUp2> {
                 SharedPreferences preferences =
                     await SharedPreferences.getInstance();
                 preferences.setInt(KeysSharedpreferances.PAGE, 1);
+                var token = preferences.get(KeysSharedpreferances.TOKEN);
+
                 createstVolunteer(
-                    idCconterVolunteer: 0,
+                    token: token.toString(),
                     collectionVolunteer: keyUserAll,
                     documentVolunteer: userName + email,
                     volunteerEmail: email,

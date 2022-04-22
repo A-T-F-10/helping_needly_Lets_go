@@ -124,6 +124,9 @@ class SignUp2State extends State<SignUp2> {
                     documentUser: email,
                     volunteerName: name,
                     volunteerEmail: email,
+                    token: preferences
+                        .getString(KeysSharedpreferances.TOKEN)
+                        .toString(),
                     idChatVolunteer: idconter);
 
                 preferences.setInt(KeysSharedpreferances.USERID, idconter);

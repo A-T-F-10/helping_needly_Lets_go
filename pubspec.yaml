@@ -32,6 +32,8 @@ dependencies:
   grouped_list: 
   flutter_launcher_icons: 
   intl:   
+  firebase_messaging:
+  http:
 
 
 dev_dependencies:
