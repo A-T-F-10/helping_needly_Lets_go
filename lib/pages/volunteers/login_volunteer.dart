@@ -75,7 +75,7 @@ class VolunteersLogInState extends State<VolunteersLogIn> {
                   onPressed: () async {
                     if (email.text == null && email.text.isEmpty) {
                       // ignore: deprecated_member_use
-                      globalKey.currentState?.showSnackBar(
+                      globalKey.currentState?.showBottomSheet(
                           snackBar(text: TKeys().enterEmailAddress));
 
                       return;
@@ -96,7 +96,7 @@ class VolunteersLogInState extends State<VolunteersLogIn> {
                       } catch (e) {
                         // ignore: deprecated_member_use
                         globalKey.currentState
-                            ?.showSnackBar(snackBar(text: TKeys().account));
+                            ?.showBottomSheet(snackBar(text: TKeys().account));
                       }
                     }
                   }),

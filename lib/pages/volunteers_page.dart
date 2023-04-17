@@ -5,6 +5,7 @@ import 'package:helpings_needlys/chats/key_uesr.dart';
 import 'package:helpings_needlys/chats/models/motheds_chats.dart';
 import 'package:helpings_needlys/chats/models/volunteers_chats.dart';
 import 'package:helpings_needlys/chats/widgets/chats_models.dart';
+import 'package:helpings_needlys/core/features/fistPage/fist_pages.dart';
 import 'package:helpings_needlys/core/utils/colors.dart';
 import 'package:helpings_needlys/core/utils/getx_controller.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
@@ -77,7 +78,7 @@ class _VolunteersPageState extends State<VolunteersPage> {
                                       Navigator.of(context).pushAndRemoveUntil(
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                  const VolunteersLogIn()),
+                                                  const FirstPage()),
                                           (route) => false);
                                     },
                                     icon: const Icon(Icons.logout),
@@ -164,7 +165,6 @@ class _VolunteersPageState extends State<VolunteersPage> {
               collectionUser: '$id' + chstUser);
         } catch (e) {
           createstUserChats(
-            token: preferences.get(KeysSharedpreferances.TOKEN).toString(),
             collectionVolunteer: keyUserAll,
             documentVolunteer: volunteersName + email,
             collectionUser: "$id" + chstUser,
@@ -176,6 +176,7 @@ class _VolunteersPageState extends State<VolunteersPage> {
 
         chats.email = email;
         chats.name = volunteersName;
+        print("$id" + "/////////////////////////////");
         Get.offUntil(
             MaterialPageRoute(
                 builder: (context) => VolunteersChats(

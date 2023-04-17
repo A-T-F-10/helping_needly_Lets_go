@@ -7,6 +7,7 @@ import 'package:helpings_needlys/core/widgets/switch_language.dart';
 import 'package:helpings_needlys/localization/t_key_v.dart';
 import 'package:helpings_needlys/sharedpreferances/keys_sharedpreferances.dart';
 import 'package:helpings_needlys/sharedpreferances/modle_get_date.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -38,6 +39,13 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
       builder: (controller) {
         return ListView(
           children: [
+            ClipPath(
+              clipper: WaveClipperTwo(),
+              child: Container(
+                height: SizeConfig.screenHeight! / 6,
+                color: ColorsTheme.darkPrimaryColor,
+              ),
+            ),
             Container(
               padding: const EdgeInsets.all(12),
               child: Center(
@@ -47,14 +55,23 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
                 ),
               ),
             ),
-            customText(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: customText(
+                  size: SizeConfig.defaultSize! * controller.sizex,
+                  text: TKeys().language,
+                  color: ColorsTheme.darkPrimaryColor),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+              child: SwitchLanguageApp(),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: customText(
                 size: SizeConfig.defaultSize! * controller.sizex,
-                text: TKeys().language,
-                color: ColorsTheme.darkPrimaryColor),
-            const SwitchLanguageApp(),
-            customText(
-              size: SizeConfig.defaultSize! * controller.sizex,
-              text: TKeys().fontSize,
+                text: TKeys().fontSize,
+              ),
             ),
             Slider(
               value: controller.valueSize,
@@ -74,9 +91,12 @@ class _SettingsContaintPageState extends State<SettingsContaintPage> {
               min: 0,
               label: 'تكبير',
             ),
-            customText(
-              size: SizeConfig.defaultSize! * controller.sizex,
-              text: TKeys().gradeColor,
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: customText(
+                size: SizeConfig.defaultSize! * controller.sizex,
+                text: TKeys().gradeColor,
+              ),
             ),
             Slider(
               value: controller.valueColors,

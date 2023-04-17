@@ -506,4 +506,6 @@ Map<String, String> en = {
   "send": "Send",
   "resetPassword": "Reset Password",
   "areyoursurelogout": "Are you sure you want to logout?",
+  "aboutconntent": "You can connect with ue by ",
+  "aboutconntentus": "we are developments applications with flutter ",
 };

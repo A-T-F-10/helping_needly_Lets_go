@@ -105,7 +105,6 @@ class VolunteersSignUp2State extends State<VolunteersSignUp2> {
                 var token = preferences.get(KeysSharedpreferances.TOKEN);
 
                 createstVolunteer(
-                    token: token.toString(),
                     collectionVolunteer: keyUserAll,
                     documentVolunteer: userName + email,
                     volunteerEmail: email,
@@ -120,7 +119,7 @@ class VolunteersSignUp2State extends State<VolunteersSignUp2> {
                 try {
                   if (email.isEmpty) {
                     // ignore: deprecated_member_use
-                    globalKey.currentState?.showSnackBar(
+                    globalKey.currentState?.showBottomSheet(
                         snackBar(text: TKeys().enterEmailAddress));
                     return;
                   } else {

@@ -124,9 +124,6 @@ class SignUp2State extends State<SignUp2> {
                     documentUser: email,
                     volunteerName: name,
                     volunteerEmail: email,
-                    token: preferences
-                        .getString(KeysSharedpreferances.TOKEN)
-                        .toString(),
                     idChatVolunteer: idconter);
 
                 preferences.setInt(KeysSharedpreferances.USERID, idconter);
@@ -135,7 +132,7 @@ class SignUp2State extends State<SignUp2> {
                   print(email);
                   if (email.isEmpty) {
                     // ignore: deprecated_member_use
-                    globalKey.currentState?.showSnackBar(
+                    globalKey.currentState?.showBottomSheet(
                         snackBar(text: TKeys().enterEmailAddress));
                     return;
                   } else {

@@ -75,7 +75,7 @@ class LogInState extends State<LogIn> {
                   onPressed: () async {
                     if (email.text == null && email.text.isEmpty) {
                       // ignore: deprecated_member_use
-                      globalKey.currentState?.showSnackBar(
+                      globalKey.currentState?.showBottomSheet(
                           snackBar(text: TKeys().enterEmailAddress));
 
                       return;
@@ -96,7 +96,7 @@ class LogInState extends State<LogIn> {
                                     (route) => false));
                       } catch (e) {
                         // ignore: deprecated_member_use
-                        globalKey.currentState?.showSnackBar(snackBar(
+                        globalKey.currentState?.showBottomSheet(snackBar(
                             text:
                                 'البريد الالكتروني او كلمة المرور غير صحيحة'));
                       }

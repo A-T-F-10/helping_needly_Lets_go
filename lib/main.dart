@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:helpings_needlys/core/features/Splash/presentation/splash_view.dart';
 import 'package:helpings_needlys/core/utils/colors.dart';
@@ -13,6 +14,9 @@ Future<void> main() async {
   await Firebase.initializeApp();
   ModleGetDate().gett();
   Messages().tokens();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
 
   Future.delayed(const Duration(seconds: 2), () {
     runApp(const MyApp());

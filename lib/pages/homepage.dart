@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:helpings_needlys/core/features/fistPage/fist_pages.dart';
 import 'package:helpings_needlys/core/utils/colors.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
 import 'package:helpings_needlys/localization/t_key_v.dart';
@@ -6,6 +7,7 @@ import 'package:helpings_needlys/pages/log/login.dart';
 import 'package:helpings_needlys/sharedpreferances/keys_sharedpreferances.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'home/settings_containt_page.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'home/connect_containt_page.dart';
 import 'home/home_containt_page.dart';
 
@@ -18,6 +20,7 @@ class HomePage extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          elevation: 0,
           actions: [
             IconButton(
               padding: EdgeInsets.symmetric(
@@ -65,7 +68,7 @@ class HomePage extends StatelessWidget {
                                             .pushAndRemoveUntil(
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        const LogIn()),
+                                                        const FirstPage()),
                                                 (route) => false);
                                       },
                                       icon: const Icon(Icons.logout),
@@ -111,24 +114,23 @@ class HomePage extends StatelessWidget {
   Widget menu() {
     return Container(
       color: ColorsTheme.darkPrimaryColor,
-      child: TabBar(
-        labelColor: Colors.white,
-        unselectedLabelColor: Colors.white70,
-        indicatorSize: TabBarIndicatorSize.tab,
-        indicatorPadding: const EdgeInsets.all(5.0),
-        indicatorColor: Colors.cyan,
-        tabs: [
-          Tab(
-            text: TKeys().home,
-            icon: const Icon(Icons.home),
+      child: ConvexAppBar(
+        style: TabStyle.flip,
+        activeColor: Colors.white,
+        backgroundColor: ColorsTheme.darkPrimaryColor,
+        shadowColor: ColorsTheme.blackColor,
+        items: [
+          TabItem(
+            title: TKeys().home,
+            icon: const Icon(Icons.home, color: Colors.white),
           ),
-          Tab(
-            text: TKeys().connect,
-            icon: const Icon(Icons.contact_support),
+          TabItem(
+            title: TKeys().connect,
+            icon: const Icon(Icons.contact_support, color: Colors.white),
           ),
-          Tab(
-            text: TKeys().setting,
-            icon: const Icon(Icons.settings),
+          TabItem(
+            title: TKeys().setting,
+            icon: const Icon(Icons.settings, color: Colors.white),
           ),
         ],
       ),

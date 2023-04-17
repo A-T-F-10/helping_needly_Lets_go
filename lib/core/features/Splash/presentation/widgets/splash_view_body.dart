@@ -66,7 +66,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
               password: ModleGetDate.password.trim());
           ModleGetDate.pagechenge == 0
               ? Get.offAll(const HomePage())
-              : Get.offAll(VolunteersPage());
+              : Get.offAll(const VolunteersPage());
         } else {
           Get.offAll(const FirstPage());
         }

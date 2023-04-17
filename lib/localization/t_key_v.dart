@@ -70,6 +70,8 @@ class TKeys {
   String logout = "logout".tr;
   String cancel = "cancel".tr;
   String areyoursurelogout = "areyoursurelogout".tr;
+  String aboutconntent = "aboutconntent".tr;
+  String aboutconntentus = "aboutconntentus".tr;
 }
 
 //TKeys.hello

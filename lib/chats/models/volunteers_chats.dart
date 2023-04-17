@@ -98,7 +98,7 @@ class VolunteersChats extends StatelessWidget {
             backgroundColor: ColorsTheme.darkPrimaryColor,
             radius: 25,
             child: IconButton(
-              icon: const Icon(Icons.send),
+              icon: const Icon(Icons.send, color: Colors.white),
               onPressed: () async {
                 int conter = await getContersUser(
                     collectionVolunteer: keyUserAll,

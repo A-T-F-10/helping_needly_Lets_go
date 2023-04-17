@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:helpings_needlys/core/utils/token.dart';
 import 'package:helpings_needlys/sharedpreferances/keys_sharedpreferances.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -34,7 +33,7 @@ class Messages {
       Uri.parse('https://fcm.googleapis.com/fcm/send'),
       headers: <String, String>{
         'Content-Type': 'application/json',
-        'Authorization': 'key=$serverToken',
+        'Authorization': 'key=',
       },
       body: jsonEncode(
         <String, dynamic>{

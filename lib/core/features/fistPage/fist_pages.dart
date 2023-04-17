@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:helpings_needlys/core/utils/colors.dart';
+import 'package:helpings_needlys/core/utils/size_confg.dart';
 import 'package:helpings_needlys/localization/t_key_v.dart';
 import 'package:helpings_needlys/pages/log/login.dart';
 import 'package:helpings_needlys/pages/volunteers/login_volunteer.dart';
 import 'package:helpings_needlys/sharedpreferances/keys_sharedpreferances.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,8 +22,15 @@ class FirstPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            ClipPath(
+              clipper: WaveClipperTwo(),
+              child: Container(
+                height: SizeConfig.screenHeight! / 6,
+                color: ColorsTheme.darkPrimaryColor,
+              ),
+            ),
             const Spacer(
-              flex: 1,
+              flex: 2,
             ),
             SizedBox(
               child: Image.asset('assets/images/Logo.png'),
@@ -49,7 +58,14 @@ class FirstPage extends StatelessWidget {
                 }),
             const Spacer(
               flex: 2,
-            )
+            ),
+            ClipPath(
+              clipper: WavyCircleClipper(3),
+              child: Container(
+                height: SizeConfig.screenHeight! / 6,
+                color: ColorsTheme.darkPrimaryColor,
+              ),
+            ),
           ],
         ),
       ),

@@ -43,6 +43,11 @@ class Pleases extends StatelessWidget {
                                   imageListb: imageList,
                                 )));
                       },
+                      subtitle: Text(lisr[1][itme]),
+                      trailing: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        backgroundImage: AssetImage(imageList[itme]),
+                      ),
                       title: Text(
                         lisr[0][itme],
                         style: TextStyle(

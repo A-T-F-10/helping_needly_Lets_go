@@ -251,4 +251,6 @@ Map<String, String> ar = {
   "send": "إرسال",
   "resetPassword": "إعادة تعين كلمة المرور",
   "areyoursurelogout": "هل أنت متأكد من أنك تريد تسجيل الخروج؟",
+  "aboutconntent": "يمكنك التواصل معنا على  ",
+  "aboutconntentus": "نحن مطورين برامج باستخدام فلاتر  ",
 };

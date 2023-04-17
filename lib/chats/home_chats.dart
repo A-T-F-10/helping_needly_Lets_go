@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:helpings_needlys/chats/user_chats.dart';
 import 'package:helpings_needlys/chats/widgets/chats_models.dart';
 import 'package:helpings_needlys/chats/models/motheds_chats.dart';
+import 'package:helpings_needlys/core/utils/colors.dart';
 import 'package:helpings_needlys/core/utils/getx_controller.dart';
 import 'package:helpings_needlys/core/utils/size_confg.dart';
 import 'package:helpings_needlys/localization/t_key_v.dart';
@@ -12,6 +13,7 @@ import 'package:helpings_needlys/chats/key_uesr.dart';
 import 'package:helpings_needlys/sharedpreferances/keys_sharedpreferances.dart';
 import 'package:helpings_needlys/sharedpreferances/modle_get_date.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 class HomeChats extends StatelessWidget {
   HomeChats({Key? key}) : super(key: key);
@@ -22,11 +24,22 @@ class HomeChats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton.extended(
+            label: Text(TKeys().search, style: TextStyle(color: Colors.white)),
+            backgroundColor: ColorsTheme.primaryColor,
+            onPressed: () {},
+            icon: Icon(
+              Icons.refresh,
+              color: Colors.white,
+            )),
         appBar: AppBar(
           centerTitle: true,
           title: Text(TKeys().volunteers),
         ),
         body: Column(children: [
+          SizedBox(
+            height: SizeConfig.screenHeight! / 50,
+          ),
           Expanded(
             child: FutureBuilder<QuerySnapshot>(
                 future: firestore.collection(keyUserAll).get(),
@@ -44,7 +57,12 @@ class HomeChats extends StatelessWidget {
                               elevation: 10,
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: volunteersUser(
+                                child:
+                                    //  Container(
+                                    //   height: 100,
+                                    //   width: 100,
+                                    // )
+                                    volunteersUser(
                                   volunteersName:
                                       "${index.data!.docs.toList()[i].get('name')}",
                                   email:
@@ -54,14 +72,10 @@ class HomeChats extends StatelessWidget {
                                   volunteersgenders: index.data!.docs
                                       .toList()[i]
                                       .get('gender'),
-                                  chatsConter: index.data!.docs
-                                      .toList()[i]
-                                      .get('chatConter'),
-                                  idConter: index.data!.docs
-                                      .toList()[i]
-                                      .get('idConter'),
+                                  chatsConter: 1,
+                                  idConter: 1,
                                   context: context,
-                                  size: con.sizex,
+                                  size: 2,
                                 ),
                               ),
                             );
@@ -102,7 +116,6 @@ class HomeChats extends StatelessWidget {
               collectionUser: '$id' + chstUser);
         } catch (e) {
           createstUserChats(
-            token: preferences.get(KeysSharedpreferances.TOKEN).toString(),
             email: ModleGetDate.email,
             collectionVolunteer: keyUserAll,
             documentVolunteer: volunteersName + email,

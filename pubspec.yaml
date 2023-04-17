@@ -1,54 +1,52 @@
 name: helpings_needlys
 description: A new Flutter project.
 
-publish_to: 'none' 
+publish_to: 'none'
 
 version: 1.0.0+1
 
 environment:
   sdk: ">=2.16.1 <3.0.0"
- 
-dependencies:
 
+dependencies:
+  avatar_glow: null
+  cloud_firestore: null
   cupertino_icons: ^1.0.2
+  email_validator: null
+  firebase: null
+
+  firebase_auth: null
+  firebase_messaging: null
   flutter:
     sdk: flutter
-  flutter_localizations: 
+  flutter_launcher_icons: null
+  flutter_localizations:
     sdk: flutter
-  firebase:
-  localization:
-
-  firebase_auth: 
-  cloud_firestore:
-  email_validator:
-  provider:
-  toggle_switch:
-  get:
-  get_storage:
-  shared_preferences: 
-  url_launcher:
-  speech_to_text:
-  avatar_glow: 
-  grouped_list: 
-  flutter_launcher_icons: 
-  intl:   
-  firebase_messaging:
-  http:
-
+  get: null
+  get_storage: null
+  grouped_list: null
+  http: null
+  intl: null
+  localization: null
+  provider: null
+  shared_preferences: null
+  speech_to_text: null
+  toggle_switch: null
+  url_launcher: null
 
 dev_dependencies:
-  flutter_lints: ^1.0.0
+  convex_bottom_bar: ^3.2.0
+  flutter_custom_clippers: ^2.1.0
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
+  google_maps_flutter: ^2.2.5
 flutter_icons:
   android: true
   ios: true
   image_path: "assets/images/Logo2.png"
 
-
-
 flutter:
-
   uses-material-design: true
   assets:
     - assets/images/

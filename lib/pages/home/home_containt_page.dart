@@ -9,7 +9,6 @@ import 'package:helpings_needlys/localization/t_key_v.dart';
 import 'package:helpings_needlys/models/info/images_list.dart';
 import 'package:helpings_needlys/models/info/info.dart';
 import 'package:helpings_needlys/pages/pleases/pleases.dart';
-import '../../core/utils/colors.dart';
 
 class HomeContaintPage extends StatelessWidget {
   const HomeContaintPage({Key? key}) : super(key: key);
@@ -122,10 +121,10 @@ class HomeContaintPage extends StatelessWidget {
       onTap: method,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius:
-              BorderRadius.all(Radius.circular(SizeConfig.defaultSize! * 1.5)),
-          color: ColorsTheme.darkPrimaryColor,
-        ),
+            borderRadius: BorderRadius.all(
+                Radius.circular(SizeConfig.defaultSize! * 1.5)),
+            color: ColorsTheme.darkPrimaryColor,
+            boxShadow: [BoxShadow(blurRadius: 5, color: Colors.black)]),
         child: GetBuilder<ChengegetxController>(
             init: ChengegetxController(),
             builder: (context) {
